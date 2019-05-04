@@ -19,7 +19,9 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->content = $request->content;
         $news->postDate = date('Y-m-d');
-        $resFile = $request->file('file')->store("newsFiles");
+        $f = $request->file('file');
+        $resFile = basename($f->getClientOriginalName(), '.' . $f->getClientOriginalExtension()) . '_' .date('Y_m_d_H_i_s') . '.' . $f->getClientOriginalExtension();
+        $newPath = $f->storeAs("public/newsFiles", $resFile);
         $news->filePath = $resFile;
         $news->save();
         //$news = News::create($request->all());

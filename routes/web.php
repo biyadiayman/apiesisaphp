@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/newsFiles/{filename}', function($filename){
-    $path = storage_path('app/newsFiles/' . $filename);
+Route::get('/newsfiles/{filename}', function($filename){
+    $path = storage_path('app/public/newsFiles/' . $filename);
     error_log(" !! " . $path);
     if(!File::exists($path)){
         abort(404);

@@ -22,6 +22,7 @@ class NewsController extends Controller
         $f = $request->file('file');
         $resFile = basename($f->getClientOriginalName(), '.' . $f->getClientOriginalExtension()) . '_' .date('Y_m_d_H_i_s') . '.' . $f->getClientOriginalExtension();
         $newPath = $f->storeAs("public/newsFiles", $resFile);
+        $newPath;
         $news->filePath = $resFile;
         $news->save();
         //$news = News::create($request->all());
@@ -31,7 +32,7 @@ class NewsController extends Controller
     public function remove(Request $request, $id)
     {
         $news = News::findOrFail($id);
-        Storage::delete($news->filePath);
+        Storage::delete("public/newsFiles/" . $news->filePath);
         $news->delete();
 
         return 204;

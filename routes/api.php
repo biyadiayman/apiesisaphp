@@ -26,6 +26,7 @@ Route::get('/matieres', 'MatiereController@all');
 Route::get('/matieres/{idMatiere}', 'MatiereController@getMatiere');
 
 Route::get('/etudiants', 'EtudiantController@all');
+Route::get('/etudiants/{idEtudiant}', 'EtudiantController@getEtudiant');
 
 Route::get('/news', 'NewsController@all');
 Route::post('/news', 'NewsController@add');

@@ -11,4 +11,9 @@ class EtudiantController extends Controller
     {
         return Etudiant::all();
     }
+
+    public function getEtudiant($idEtudiant)
+    {
+        return Etudiant::Where('idEtudiant', $idEtudiant)->get();
+    }
 }

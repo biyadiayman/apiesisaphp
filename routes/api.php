@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/', function ()
 {
-    return 'The endpoints documentation can be found on the <a href="https://www.github.com" >github</a>';
+    return 'The endpoints documentation can be found on the <a href="https://www.github.com/biyadiayman/apiesisaphp/blob/master/endpoints.md" >github</a>';
 });
 
 Route::get('/absences', 'AbsencesController@all');

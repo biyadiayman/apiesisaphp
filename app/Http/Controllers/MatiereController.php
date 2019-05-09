@@ -12,4 +12,9 @@ class MatiereController extends Controller
     {
         return Matiere::all();
     }
+
+    public function getMatiere($idMatiere)
+    {
+        return Matiere::Where('id', $idMatiere)->get();
+    }
 }

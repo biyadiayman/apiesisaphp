@@ -23,6 +23,8 @@ Route::get('/absences/{idEtudiant}', 'AbsencesController@absencesEtudiant');
 
 Route::get('/matieres', 'MatiereController@all');
 
+Route::get('/matieres/{idMatiere}', 'MatiereController@getMatiere');
+
 Route::get('/etudiants', 'EtudiantController@all');
 
 Route::get('/news', 'NewsController@all');

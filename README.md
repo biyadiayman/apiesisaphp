@@ -1,3 +1,3 @@
 # apiesisaphp
 
-## [API Endpoints Documentation](../blob/master/endpoints.md)
+## [API Endpoints Documentation](../master/endpoints.md)

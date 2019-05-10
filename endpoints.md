@@ -9,6 +9,7 @@
  GET | /api/news | returns all the news|
  POST | /api/news | add a new item to news|
  DELETE | /api/news/id | delete the news by it's id|
+ GET | /newsfiles/fileName | get the file from the server |
 ---
 ### Absences
 

@@ -34,3 +34,6 @@ Route::get('/etudiants/{idEtudiant}', 'EtudiantController@getEtudiant');
 Route::get('/news', 'NewsController@all');
 Route::post('/news', 'NewsController@add');
 Route::delete('/news/{id}', 'NewsController@remove');
+
+Route::post('/login', 'EtudiantController@loginEtudiant');
+Route::post('/addEnfant', 'EtudiantController@addEnfant');

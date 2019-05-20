@@ -16,17 +16,23 @@ class NewsController extends Controller
     public function add(Request $request)
     {
         $news = new News;
-        $news->title = $request->title;
-        $news->content = $request->content;
-        $news->postDate = date('Y-m-d');
-        $f = $request->file('file');
-        $resFile = basename($f->getClientOriginalName(), '.' . $f->getClientOriginalExtension()) . '_' .date('Y_m_d_H_i_s') . '.' . $f->getClientOriginalExtension();
-        $newPath = $f->storeAs("public/newsFiles", $resFile);
-        $newPath;
-        $news->filePath = $resFile;
-        $news->save();
-        //$news = News::create($request->all());
-        return response()->json($news, 201);
+        if (isset($request->title) && isset($request->content)) {
+            $news->title = $request->title;
+            $news->content = $request->content;
+            $news->postDate = date('Y-m-d');
+            if(isset($request->file)){
+                $f = $request->file('file');
+                $resFile = basename($f->getClientOriginalName(), '.' . $f->getClientOriginalExtension()) . '_' .date('Y_m_d_H_i_s') . '.' . $f->getClientOriginalExtension();
+                $newPath = $f->storeAs("public/newsFiles", $resFile);
+                $newPath;
+                $news->filePath = $resFile;
+            }
+            $news->save();
+            //$news = News::create($request->all());
+            return response()->json($news, 201);            
+        }else{
+            return 'error';
+        }
     }
 
     public function remove(Request $request, $id)

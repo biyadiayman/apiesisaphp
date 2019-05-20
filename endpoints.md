@@ -31,3 +31,11 @@
 |-----|-----|-----|
 | GET | /api/etudiants | return all "etudiants" |
 | GET | /api/etudiants/id | return the "etudiant" with the given id |
+
+---
+### Login
+
+|Method|Url|Description|
+|-----|-----|-----|
+| POST | /api/login | return all students with the same "ipParentInfo" |
+| POST | /api/addEnfant | add a student to the connected user |

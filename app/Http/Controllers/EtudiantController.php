@@ -44,9 +44,9 @@ class EtudiantController extends Controller
             //$etudiant->save();
             return $etudiant;
         }else{
-            return 'Wrong info '.$etudiant->prenom == $request->prenom &&
+            return 'Wrong info '.string($etudiant->prenom == $request->prenom &&
             $etudiant->nom == $request->nom &&
-            $etudiant->dateNaissance == $request->dateNaissance.'xoxo';
+            $etudiant->dateNaissance == $request->dateNaissance.'xoxo');
         }
         }else{
             return 'Wrong info (not set)';

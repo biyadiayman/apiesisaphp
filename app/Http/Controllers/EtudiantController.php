@@ -41,7 +41,7 @@ class EtudiantController extends Controller
         ){
             // ????
             $etudiant->idParentInfo = $user->idParentInfo;
-            //$etudiant->save();
+            $etudiant->save();
             return $etudiant;
         }else{
             return 'Wrong info';

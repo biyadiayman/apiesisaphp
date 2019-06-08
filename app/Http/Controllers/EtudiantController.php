@@ -35,8 +35,8 @@ class EtudiantController extends Controller
             $user = Etudiant::findOrFail($request->idUser);
             $etudiant = Etudiant::Where('cin', $request->cin)->firstOrFail();// cin
         if(
-            $etudiant->prenom == $request->prenom &&
-            $etudiant->nom == $request->nom &&
+            str_replace(' ','',$etudiant->prenom) == str_replace(' ','',$request->prenom) &&
+            str_replace(' ','',$etudiant->nom) == str_replace(' ','',$request->nom) &&
             $etudiant->dateNaissance == $request->dateNaissance 
         ){
             // ????
@@ -44,7 +44,7 @@ class EtudiantController extends Controller
             //$etudiant->save();
             return $etudiant;
         }else{
-            return 'Wrong info '.json_encode(str_replace(' ','',$etudiant->nom)).'xoxo'.json_encode($request->nom);
+            return 'Wrong info';
         }
         }else{
             return 'Wrong info (not set)';

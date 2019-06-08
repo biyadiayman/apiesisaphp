@@ -47,7 +47,7 @@ class EtudiantController extends Controller
             return 'Wrong info';
         }
         }else{
-            return 'Wrong info';
+            return 'Wrong info (not set)';
         }
 
 

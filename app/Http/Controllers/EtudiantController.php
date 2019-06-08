@@ -24,7 +24,7 @@ class EtudiantController extends Controller
         $enfants = Etudiant::Where('idParentInfo', $etudiant->idParentInfo)->get();
         if($request->pwd == $etudiant->nom.''.$etudiant->cin && ! is_null($etudiant))
             return $enfants;
-        return 'wrong Login/Pwd combo';
+        return response('wrong Login/Pwd combo', 400);
     
     }
 
@@ -44,10 +44,10 @@ class EtudiantController extends Controller
             $etudiant->save();
             return $etudiant;
         }else{
-            return 'Wrong info';
+            return response('Wrong info', 400);
         }
         }else{
-            return 'Wrong info (not set)';
+            return response('Wrong info', 400);
         }
 
 

@@ -7,14 +7,22 @@ use App\Absence;
 
 class AbsencesController extends Controller
 {
-    public function absencesEtudiant($idEtudiant)
+    public function absencesEtudiant($idEtudiant, Request $request)
     {
-        //$idEtudiant = 10104212181680;
-        return Absence::Where('id_etudiant', $idEtudiant)->get();
+        if($request->header("key") == "ESISAAPIACCESS"){
+            //$idEtudiant = 10104212181680;
+            return Absence::Where('id_etudiant', $idEtudiant)->get();
+        }
+        return response(401, 401);
     }
 
-    public function all()
+    public function all(Request $request)
     {
-        return Absence::all();
+
+        if($request->header("key") == "ESISAAPIACCESS"){
+            return Absence::all();
+        }
+        return response(401, 401);
+ 
     }
 }

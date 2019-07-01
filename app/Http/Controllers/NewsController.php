@@ -46,8 +46,10 @@ class NewsController extends Controller
     {
         if($request->header("key") == "ESISANEWSADMIN"){
             $news = News::findOrFail($id);
-            Storage::delete("public/newsFiles/" . $news->filePath);
-            $news->delete();
+	    if($news->file != null){
+            	Storage::delete("public/newsFiles/" . $news->filePath);
+	    }
+	    $news->delete();
 
             return 204;
         }
